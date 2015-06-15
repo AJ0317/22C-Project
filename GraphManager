@@ -1,0 +1,138 @@
+#ifndef GRAPH_MANAGER
+#define GRAPH_MANAGER
+#include "LinkedGraph.h"
+using namespace std;
+
+bool openOutputFile(ofstream &outputFile);
+
+class GraphManager{
+private:
+
+
+public:
+	// manipulation functions (add/remove/search/)
+	static void addNetworkLine();
+	static void removeNetworkLine();
+	static void undoPreRemoval();
+	static void calcLeastCost();
+
+	// display Functions
+	static void displayOffice();
+	static void displayGraph();
+	static void writeGraph(ofstream &outputFile);
+
+};
+
+void GraphManager::addNetworkLine(){
+	// graphInterface add
+	//do 
+	cout << "The offices that currently exist are " << endl;
+	// call list of current offices that exist
+	cout << "Enter the office to add a line from" << endl;
+	//cin >> start of vertex
+	cout << "Enter the office to connect to" << endl;
+	// cin >> end of vertex
+	// check cases
+	// if (already connected)
+	// cout << "the office has already been connected to eachother"
+	// loop ask again what the user want to connect to and from.
+	// decision = false
+	// if (not connected but offices exist)
+	// cout << "Enter the cost of the network line: "
+	// cin >> cost (the weight of the edge) 
+	// call add function (start, end, weight)"
+	// cout << "The network line of Office x(start) to office y(end) cost (user entered weight) "
+	// exit loop somehow    
+	// decision = true
+	// if (not connected but office dosent exist)
+	// creates vertices and add to graph
+	// ???
+	// decision = false
+
+
+	//while (decision = false)        // decision = when the new office line has been connected 
+
+}
+
+void GraphManager::removeNetworkLine(){
+	cout << "The offices that currently exist are " << endl;
+	// call list of current offices that exist
+	cout << "Enter the office to remove a line from" << endl;
+	//cin >> start of vertex
+	cout << "Enter the office to remove to" << endl;
+	// cin >> end of vertex
+}
+
+void GraphManager::undoPreRemoval(){
+	// if graph->isEmpty()){ cout << "Nothing to remove from network" << endl; return;
+}
+
+void GraphManager::calcLeastCost(){
+
+	cout << "The most efficient network line is ";
+	// get list of offices from least to greatest edge cost
+	cout << "For a total cost of " << /*get sum of cost*/ << endl;
+
+}
+
+void GraphManager::displayOffice(){
+	cout << "The amount of Offices in the network is " << endl;
+
+}
+
+void GraphManager::displayGraph(){
+
+
+	// Cout << The most cost efficient network line is connecting the offices in this order" << endl;
+	// call write Vector function in prim
+
+	char option;
+	cout << "How would you like to display the graph? (Enter D or B) \n   D. Depth-First traversal or B. Breath-firstTraversal" << endl;
+	cin >> option;
+
+	switch (toupper(option)){
+	case 'D':
+		// if(depthFirstTraversal is empty) cout << "There is nothing to display << endl;
+		// else display depthFirstTraversal
+		break;
+	case 'B':
+		// if (breathFirstTraversal is empty) cout <<"Nothing to display" << endl;
+		// else display breathFirstTraversal
+		break;
+	default: cout << "Invalid Entry" << endl;
+	}
+
+	// cout << "Would you like to save the results to a text file? << endl;
+	// cout << "Enter Y for yes, N for no   ";
+	// char option 
+	//cin >> option; 
+	// while (option != 'n' || option != 'N'){
+	// writeGraph();
+	//}
+
+}
+
+void GraphManager::writeGraph(ofstream &outputFile){
+	ofstream of;
+	bool openOutputFile(ofstream &of);
+	if (openOutputFile(of) == false){
+		cout << "Invalid Outputfile Name\n";
+		return 1;
+	}
+	else
+		cout << "Output successfully written to file!" << endl;
+	outputFile << endl;
+}
+
+bool openOutputFile(ofstream &outputFile){
+	string outputFileName;
+	cout << "Enter output filename: ";
+	getline(cin, outputFileName);
+	outputFile.open(outputFileName.c_str());
+	if (outputFile.fail()){
+		return false;
+	}
+	else return true;
+}
+
+#endif
