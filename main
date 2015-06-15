@@ -1,0 +1,138 @@
+//  Created by Frank M. Carrano and Tim Henry.
+//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
+
+#include <iostream>
+#include <string>
+#include "LinkedGraph.h"
+#include "ArrayStack.h"
+#include <fstream>
+#include <Windows.h>
+using namespace std;
+
+bool openInputFile(ifstream &ifs)
+{
+	string filename;
+	cout << "Enter the input filename: ";
+	getline(cin, filename);
+	ifs.open(filename.c_str()); //if input matches filename then open
+	return ifs.is_open();
+}
+
+bool openOutputFile(ofstream &outputFile){
+	string outputFileName;
+	cout << "Enter output filename: ";
+	getline(cin, outputFileName);
+	outputFile.open(outputFileName.c_str());
+	if (outputFile.fail()){
+		return false;
+	}
+	else
+		return true;
+}
+
+char getOption()
+{
+	char option;
+
+	cout << "============== Command Menu =================\n\n";
+
+	cout << "Enter T to display total number of offices." << endl;
+	cout << "Enter A to add one additional network line." << endl;
+	cout << "Enter R to remove existing network line." << endl;
+	cout << "Enter U to undo previous removal." << endl;
+	cout << "Enter C to calculate the least cost of network lines." << endl;
+	cout << "Enter D to display graph to the screen." << endl;
+	//cout << "Enter O to output graph into text file." << endl; //moving this to be part of option D.
+	cout << "Enter Q to quit." << endl;
+
+	cout << "=============================================\n\n";
+
+	cout << "Enter your choice: ";
+	cin >> option;
+	cout << endl;
+
+	return option;
+}
+
+void menu(ifstream &inFile, ofstream &outputFile)
+{
+	cout << "============== Main Menu ===============\n\n";
+
+	/*//---------------open file-------------------
+	do
+	{
+		openInputFile(inFile);
+	} while (!openInputFile(inFile));
+
+	cout << "Successfully opened file." << endl;
+
+	//---------------input file-------------------
+	cout << "Start to input file";
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "."; Sleep(500);
+	}
+
+	cout << "Finished input." << endl;
+
+
+	string office;
+	double cost;
+	ArrayStack<string> officeStack;
+	ArrayStack<double> edgeStack;
+
+	while (inFile >> office >> cost)
+	{
+		officeStack.push(office);
+		edgeStack.push(cost);
+	}*/
+
+
+
+	//----------------sub menu-------------------
+	char option;
+	
+	do{
+		option = getOption();
+
+		switch (option)
+		{
+			case 'T': //displayOffice(); break;
+			case 'A': //addNetworkLine(); break;
+			case 'R': //removeNetworkLine(); break;
+			case 'U': //undoPreRemoval(); break;
+			case 'C': //calcLeastCost(); break;
+			case 'D': //displayGraph(); break;
+			//case 'O': //outputGraph(); break;
+			case 'Q': cout << "End of program." << endl;
+				break;
+			default: cout << "Invalid entry." << endl;
+		}
+
+	} while (option != 'Q');
+
+}
+
+int main()
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	system("pause");
+	return 0;
+}
